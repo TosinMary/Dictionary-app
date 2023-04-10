@@ -37,7 +37,7 @@ function Display() {
       <form onSubmit = {(e)=> {getDictionaryApi(e.preventDefault());}}>
       <h1 className='flex justify-center items-center font-semibold text-fuchsia-800 text-2xl my-4 '>SearchWord...</h1>
         <div className='flex flex-row justify-center items-center '>
-            <input type="text" autoFocus  onChange={(e) => setWordText(e.target.value)} className='p-4 rounded-lg bg-gray-200 text-fuchsia-600 font-bold outline-none border-none shadow-sm w-1/2 ' ></input>
+            <input type="text" autoFocus placeholder='Search word'  onChange={(e) => setWordText(e.target.value)} className='p-4 rounded-lg bg-gray-200 text-fuchsia-600 font-bold outline-none border-none shadow-sm w-1/2 ' ></input>
             <button onClick={getDictionaryApi} className=' bg-fuchsia-300 p-5 rounded-lg outline-none'><GoSearch /></button>
         </div>
         
@@ -46,7 +46,7 @@ function Display() {
           
         <div className=' m-auto max-w-2xl p-4'>
           
-          <ul className='flex flex-col justify-center items-start  '>
+          <ul className='flex flex-col justify-center items-start '>
             <li className='my-4'>{wordParameters?.word}
              <br />{wordParameters?.phonetics[0].audio &&
              (<button onClick={start} className='bg-fuchsia-300 mt-3  p-2 rounded-full'><BsPlay /></button>)
