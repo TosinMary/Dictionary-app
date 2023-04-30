@@ -1,8 +1,9 @@
-.App{
+body{
   height: 100vh;
 }
 #dark{
-  background-color: rgb(56, 3, 56);
+  background-color: black;
+  color: white;
 }
 #light{
   background-color: white;

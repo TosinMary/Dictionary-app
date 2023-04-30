@@ -1,8 +1,10 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Header from './component/Header';
 import Display from '../src/component/display/Display';
 import { createContext, useState  } from 'react';
-import ReactSwitch from 'react-switch';
+import Switch from 'react-switch';
 
 
 
@@ -18,7 +20,8 @@ function App() {
   return (
     <ThemeContext.Provider value={{theme, toggleTheme}} >
     <div className="App" id={theme}>
-      <ReactSwitch onChange={toggleTheme} checked={theme === "light"}/>
+      <Switch onChange={toggleTheme} checked={theme === "light"}/>
+
       <Header />
       <Display />
      

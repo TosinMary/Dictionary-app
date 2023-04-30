@@ -1,16 +1,20 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import {GoSearch} from 'react-icons/go';
 import {BsPlay} from 'react-icons/bs';
 import { useState } from 'react';
 import Axios from 'axios';
 
 
+
 function Display() {
     const [wordText, setWordText] = useState("")
     const [wordParameters, setWordParameters] = useState(null)
 
+
     const getDictionaryApi = () => {
-      if (wordText === "") {
+      if (wordText === "" || wordText === " ") {
         alert("Please Input a word");
         
       } else {
@@ -33,18 +37,22 @@ function Display() {
 
 
   return (
-    <section className='my-8'>
-      <form onSubmit = {(e)=> {getDictionaryApi(e.preventDefault());}}>
-      <h1 className='flex justify-center items-center font-semibold text-fuchsia-800 text-2xl my-4 '>SearchWord...</h1>
-        <div className='flex flex-row justify-center items-center '>
-            <input type="text" autoFocus placeholder='Search word'  onChange={(e) => setWordText(e.target.value)} className='p-4 rounded-lg bg-gray-200 text-fuchsia-600 font-bold outline-none border-none shadow-sm w-1/2 ' ></input>
-            <button onClick={getDictionaryApi} className=' bg-fuchsia-300 p-5 rounded-lg outline-none'><GoSearch /></button>
+    <section className='container text-center mt-4'>
+      <div className="row flex justify-center">
+        <div className="col col-lg-6">
+        <form onSubmit = {(e)=> {getDictionaryApi(e.preventDefault());}}>
+      <h3 className='mb-2'>WordFinder</h3>
+        <div >
+        <div class="input-group mb-3">
+       <input type="text" class="form-control" placeholder="Search word"onChange={(e) => setWordText(e.target.value)}  aria-label="Recipient's username" aria-describedby="button-addon2"/>
+       <button onClick={getDictionaryApi} class="btn btn-outline-secondary" type="button" id="button-addon2"><GoSearch /></button>
+      </div>
         </div>
-        
       </form>
-      
-          
-        <div className=' m-auto max-w-2xl p-4'>
+        </div>
+      </div>
+        <div className="col">
+      <div className=' m-auto max-w-2xl p-4'>
           
           <ul className='flex flex-col justify-center items-start '>
             <li className='my-4'>{wordParameters?.word}
@@ -69,6 +77,8 @@ function Display() {
              {wordParameters?.meanings[0].definitions[0].antonyms[0]}</li>)}
           </ul>
         </div>
+        </div>
+      
         <p className='text-gray-300 text-sm flex justify-center items-end my-5'>All Right & Reserved by Bamidele Tosin.</p>
        
 
