@@ -1,7 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import Header from './component/Header';
 import Display from '../src/component/display/Display';
 import { createContext, useState  } from 'react';
 import Switch from 'react-switch';
@@ -22,7 +21,7 @@ function App() {
     <div className="App" id={theme}>
       <Switch onChange={toggleTheme} checked={theme === "light"}/>
 
-      <Header />
+     
       <Display />
      
     </div>

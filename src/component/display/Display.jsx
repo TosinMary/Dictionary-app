@@ -5,6 +5,8 @@ import {GoSearch} from 'react-icons/go';
 import {BsPlay} from 'react-icons/bs';
 import { useState } from 'react';
 import Axios from 'axios';
+import './Display.css'
+import {FiBook} from 'react-icons/fi';
 
 
 
@@ -14,7 +16,7 @@ function Display() {
 
 
     const getDictionaryApi = () => {
-      if (wordText === "" || wordText === " ") {
+      if (wordText === "") {
         alert("Please Input a word");
         
       } else {
@@ -22,7 +24,7 @@ function Display() {
         setWordParameters(res.data[0]);
       })
       .catch(() => {
-        alert("Please check your spellings and try again");
+        alert("Please connect to network and check your spellings to try again");
         
       })
      }
@@ -40,12 +42,15 @@ function Display() {
     <section className='container text-center mt-4'>
       <div className="row flex justify-center">
         <div className="col col-lg-6">
+          <div className="title-page">
+          <h3 className='rounded-4 book-logo'>< FiBook /></h3>
+      <h3 className='mb-3'>WordFinder</h3>
+      </div>
         <form onSubmit = {(e)=> {getDictionaryApi(e.preventDefault());}}>
-      <h3 className='mb-2'>WordFinder</h3>
         <div >
-        <div class="input-group mb-3">
-       <input type="text" class="form-control" placeholder="Search word"onChange={(e) => setWordText(e.target.value)}  aria-label="Recipient's username" aria-describedby="button-addon2"/>
-       <button onClick={getDictionaryApi} class="btn btn-outline-secondary" type="button" id="button-addon2"><GoSearch /></button>
+        <div class="input-group mb-3 ">
+       <input type="text" class="form-control p-3 " placeholder="Search word"onChange={(e) => setWordText(e.target.value)}  aria-label="Recipient's username" aria-describedby="button-addon2"/>
+       <button onClick={getDictionaryApi} class="btn btn-dark btn-outline-secondary " type="button" id="button-addon2"><GoSearch /></button>
       </div>
         </div>
       </form>
@@ -79,7 +84,7 @@ function Display() {
         </div>
         </div>
       
-        <p className='text-gray-300 text-sm flex justify-center items-end my-5'>All Right & Reserved by Bamidele Tosin.</p>
+        <p className='text-gray-300 text-sm flex justify-center align-bottom items-end my-5'>All Right & Reserved by Bamidele Tosin.</p>
        
 
       
